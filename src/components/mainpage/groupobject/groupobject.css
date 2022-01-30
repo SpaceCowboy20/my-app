@@ -1,0 +1,15 @@
+.groupobjectbox {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 60rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  background-color: gold;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.categoriegroupo {
+  height: 1rem;
+}
