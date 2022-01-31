@@ -1,4 +1,4 @@
-.box0 {
+.nav-box {
   width: 100%;
   height: 5rem;
   background-color: #e84118;
@@ -14,7 +14,7 @@
   height: 5rem;
 }
 
-.logo {
+.logo-box {
   left: 0;
 }
 

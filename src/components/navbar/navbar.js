@@ -8,8 +8,8 @@ import * as HiIcons from "react-icons/hi";
 class Navbar extends Component {
   render() {
     return (
-      <div className="box0">
-        <div className="logo">
+      <div className="nav-box">
+        <div className="logo-box">
           <img className="image" src={logo} alt="" />
         </div>
 

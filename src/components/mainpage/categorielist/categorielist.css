@@ -1,4 +1,4 @@
-.categoriebox {
+.pad {
   display: flex;
   position: relative;
   justify-content: center;
@@ -12,7 +12,7 @@
   box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.4), 0 10px 24px 0 rgba(0, 0, 0, 0.32);
 }
 
-.categorie-item-box {
+.card {
   height: 12rem;
   width: 11rem;
   margin: 1rem;
@@ -27,7 +27,7 @@
   transition: 0.4s;
 }
 
-.categorie-item-box:hover {
+.card:hover {
   transform: scale(1.02);
   box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.4), 0 10px 24px 0 rgba(0, 0, 0, 0.32);
 }
@@ -41,7 +41,7 @@
   position: relative;
 }
 
-.img-cat-object {
+.img-box {
   top: 0;
   height: 9rem;
   width: 9rem;

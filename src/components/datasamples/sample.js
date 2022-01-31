@@ -799,6 +799,7 @@ export const product = [
     className: "auto",
     products: [
       {
+        id: 11,
         title: "Voiture",
         price: "15000$",
         image:
@@ -806,6 +807,7 @@ export const product = [
         description: "double moteur éléctrique de 204 chevaux",
       },
       {
+        id: 12,
         title: "moto",
         price: "8000$",
         image:
@@ -813,6 +815,7 @@ export const product = [
         description: "1200cc 125Nm ",
       },
       {
+        id: 13,
         title: "outils",
         price: "25$",
         image:
@@ -820,6 +823,7 @@ export const product = [
         description: "cric losange, capacité de levage 1,5T",
       },
       {
+        id: 14,
         title: "pièce détaché",
         price: "400$",
         image:
@@ -827,6 +831,7 @@ export const product = [
         description: "amortisseur avant droit et gauche pour peugeot 308",
       },
       {
+        id: 15,
         title: "aspirateur voiture",
         price: "40$",
         image:
@@ -834,6 +839,7 @@ export const product = [
         description: "aspirateur voiture DC 12V 110W",
       },
       {
+        id: 16,
         title: "peiture et fourniture",
         price: "30$",
         image:
@@ -841,6 +847,7 @@ export const product = [
         description: "bombe à peinture hydro pour carrosserie de voiture",
       },
       {
+        id: 17,
         title: "GPS",
         price: "50$",
         image:
@@ -848,6 +855,7 @@ export const product = [
         description: "GPS 7 pouces pour voitures et camions ",
       },
       {
+        id: 18,
         title: "Support smartphone",
         price: "15$",
         image:
@@ -855,11 +863,13 @@ export const product = [
         description: "",
       },
       {
+        id: 19,
         title: "feux, ampoules et clignotants",
         price: "20$",
         image: "",
       },
       {
+        id: 20,
         title: "Accessoires camping-car",
         price: "100$",
         image:

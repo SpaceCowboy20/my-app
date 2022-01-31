@@ -2,25 +2,28 @@ import React, { Component } from "react";
 import Singleobject from "./singleobject/singleobject";
 import "./groupobject.css";
 import "./singleobject/singleobject";
-import { product } from "../../datasamples/sample";
+import { connect } from "react-redux";
 
 class Groupobject extends Component {
   render() {
+    const products = this.props.products[0].products;
+    console.log(products);
     return (
       <div>
-        <div>
-          <div className="categoriegroupo">
-            <h2>catégorie</h2>
-          </div>
-          <div className="groupobjectbox">
-            {product[0].products.map((prod) => (
-              <Singleobject key={prod.id} productData={prod} />
-            ))}
-          </div>
+        <div className="pad">
+          {products.map((prod) => (
+            <Singleobject key={prod.id} productData={prod} />
+          ))}
         </div>
       </div>
     );
   }
 }
 
-export default Groupobject;
+const mapStateToProps = (state) => {
+  return {
+    products: state.shop.products,
+  };
+};
+
+export default connect(mapStateToProps)(Groupobject);

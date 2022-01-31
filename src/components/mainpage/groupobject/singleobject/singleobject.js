@@ -1,25 +1,28 @@
 import React, { Component } from "react";
 import "./singleobject.css";
-import * as BsIcons from "react-icons/bs";
+import { connect } from "react-redux";
+import { addToCart } from "../../../../state/shopping/shopping-actions";
+import * as BiIcons from "react-icons/bi";
 
 class Singleobject extends Component {
   render() {
     const productData = this.props.productData;
+    const addToCart = this.props.addToCart;
+    console.log(productData);
     return (
       <div>
-        <div className="categorie-item-box">
+        <div className="card">
           <div className="img-div">
             <img
-              className="img-cat-object"
+              className="img-box"
               src={productData.image}
               alt={productData.title}
             />
           </div>
           <div className="text-div">
+            <BiIcons.BiHeart className="heart-card" />
             <div className="img-cat-text">{productData.title}</div>
-            <div>
-              <BsIcons.BsPlusCircle />
-            </div>
+            <BiIcons.BiCartAlt onClick={() => addToCart(productData.id)} />
           </div>
         </div>
       </div>
@@ -27,4 +30,10 @@ class Singleobject extends Component {
   }
 }
 
-export default Singleobject;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => dispatch(addToCart(id)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Singleobject);
