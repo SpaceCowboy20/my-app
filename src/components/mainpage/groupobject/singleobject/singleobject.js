@@ -8,7 +8,6 @@ class Singleobject extends Component {
   render() {
     const productData = this.props.productData;
     const addToCart = this.props.addToCart;
-    console.log(productData);
     return (
       <div>
         <div className="card">

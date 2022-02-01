@@ -1,8 +1,8 @@
-import { product } from "../../components/datasamples/sample";
+import { products } from "../../components/datasamples/productsSample";
 import * as actionTypes from "./shopping-types";
 
 const INITIAT_STATE = {
-  products: product,
+  products: products,
   cart: [],
   currentItem: null,
 };
