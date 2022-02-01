@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./banner.css";
 import left from "./imgs/left.png";
 import right from "./imgs/right.png";
 

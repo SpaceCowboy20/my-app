@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./sidebanner.css";
 
 class Sidebanner extends Component {
   render() {

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Singleobject from "./singleobject/singleobject";
-import "./groupobject.css";
 import "./singleobject/singleobject";
 import { connect } from "react-redux";
 
@@ -10,12 +9,11 @@ class Groupobject extends Component {
 
     const _ = require("lodash");
     const sample = _.sampleSize(products, 12);
-    console.log(sample);
     return (
       <div>
         <div className="pad">
-          {sample.map((prod) => (
-            <Singleobject key={prod.id} productData={prod} />
+          {sample.map((prod, index) => (
+            <Singleobject key={index} productData={prod} />
           ))}
         </div>
       </div>

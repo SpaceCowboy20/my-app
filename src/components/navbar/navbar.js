@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./navbar.css";
 import logo from "./logo.png";
 import * as FaIcons from "react-icons/fa";
 import * as BiIcons from "react-icons/bi";

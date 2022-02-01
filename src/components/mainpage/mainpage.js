@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Categorielist from "./categorielist/categorielist";
 import Groupobject from "./groupobject/groupobject";
-import "./mainpage.css";
 
 class Mainpage extends Component {
   render() {

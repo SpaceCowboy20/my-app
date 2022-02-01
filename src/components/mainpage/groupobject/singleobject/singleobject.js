@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./singleobject.css";
 import { connect } from "react-redux";
 import { addToCart } from "../../../../state/shopping/shopping-actions";
 import * as BiIcons from "react-icons/bi";

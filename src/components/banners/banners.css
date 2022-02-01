@@ -1,9 +1,0 @@
-.bannersbox {
-  width: 60rem;
-  height: 30rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  background-color: #8a2be2;
-  align-items: center;
-}

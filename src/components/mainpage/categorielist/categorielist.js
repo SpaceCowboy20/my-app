@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { categorielist } from "../../datasamples/categorielist";
-import "./categorielist.css";
 
 class Categorielist extends Component {
   render() {
@@ -13,7 +12,7 @@ class Categorielist extends Component {
           </div>
           {categorielist.map((item, index) => {
             return (
-              <Link to={item.path}>
+              <Link to={item.path} key={index}>
                 <div className="card" key={index}>
                   <div className="img-div">
                     <img src={item.image} alt="" className="img-box"></img>
