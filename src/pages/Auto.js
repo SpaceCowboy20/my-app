@@ -5,11 +5,14 @@ import Singleobject from "../components/mainpage/groupobject/singleobject/single
 class Auto extends Component {
   render() {
     const product = this.props.products;
+    const cat = product.filter((item) =>
+      item.categorie === "Auto" ? true : false
+    );
     return (
       <div>
         <div className="box5">
           <div className="pad">
-            {product.map((prod) => (
+            {cat.map((prod) => (
               <Singleobject key={prod.id} productData={prod} />
             ))}
           </div>

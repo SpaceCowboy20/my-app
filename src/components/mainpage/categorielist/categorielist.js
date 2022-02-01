@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { categorielist } from "../../datasamples/categorielist";
 import "./categorielist.css";
 
@@ -12,14 +13,16 @@ class Categorielist extends Component {
           </div>
           {categorielist.map((item, index) => {
             return (
-              <div className="card" key={index}>
-                <div className="img-div">
-                  <img src={item.image} alt="" className="img-box"></img>
+              <Link to={item.path}>
+                <div className="card" key={index}>
+                  <div className="img-div">
+                    <img src={item.image} alt="" className="img-box"></img>
+                  </div>
+                  <div className="text-div">
+                    <p className="img-cat-text">{item.title}</p>
+                  </div>
                 </div>
-                <div className="text-div">
-                  <p className="img-cat-text">{item.title}</p>
-                </div>
-              </div>
+              </Link>
             );
           })}
         </div>

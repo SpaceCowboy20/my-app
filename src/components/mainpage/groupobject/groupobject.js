@@ -7,10 +7,14 @@ import { connect } from "react-redux";
 class Groupobject extends Component {
   render() {
     const products = this.props.products;
+
+    const _ = require("lodash");
+    const sample = _.sampleSize(products, 12);
+    console.log(sample);
     return (
       <div>
         <div className="pad">
-          {products.map((prod) => (
+          {sample.map((prod) => (
             <Singleobject key={prod.id} productData={prod} />
           ))}
         </div>
