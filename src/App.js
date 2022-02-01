@@ -16,6 +16,7 @@ import Telephone from "./pages/telephone";
 import Heart from "./pages/Heart";
 import Cart from "./pages/cart";
 import Maison from "./pages/maisonbureau";
+import Supermarche from "./pages/supermarche";
 
 function App() {
   return (
@@ -31,11 +32,11 @@ function App() {
           <Route path="/electro" element={<Electro />} />
           <Route path="/informatique" element={<Informatique />} />
           <Route path="/jeux" element={<Jeux />} />
-          <Route path="/maison-et-bureau" element={<Maison />} />
+          <Route path="/maison" element={<Maison />} />
           <Route path="/mode" element={<Mode />} />
           <Route path="/sante" element={<Sante />} />
           <Route path="/sport" element={<Sport />} />
-          <Route path="/supermarche" element={<Profile />} />
+          <Route path="/supermarche" element={<Supermarche />} />
           <Route path="/telephone" element={<Telephone />} />
           <Route path="/heart" element={<Heart />} />
           <Route path="/cart" element={<Cart />} />

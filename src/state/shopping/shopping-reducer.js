@@ -14,6 +14,7 @@ const shopReducer = (state = INITIAT_STATE, action) => {
       const inCart = state.cart.find((item) =>
         item.id === action.payload.id ? true : false
       );
+      console.log(inCart);
       return {
         ...state,
         cart: inCart

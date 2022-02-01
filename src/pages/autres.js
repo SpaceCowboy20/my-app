@@ -4,13 +4,15 @@ import { connect } from "react-redux";
 
 class Autres extends Component {
   render() {
-    const product = this.props.products[11].products;
-    console.log(product);
+    const product = this.props.products;
+    const cat = product.filter((item) =>
+      item.categorie === "Autres" ? true : false
+    );
     return (
       <div>
         <div className="box4">
           <div className="pad">
-            {product.map((prod, index) => (
+            {cat.map((prod, index) => (
               <Singleobject key={index} productData={prod} />
             ))}
           </div>

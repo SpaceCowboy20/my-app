@@ -1,15 +1,19 @@
 import React, { Component } from "react";
-import { product } from "../components/datasamples/sample";
+import { connect } from "react-redux";
 import Singleobject from "../components/mainpage/groupobject/singleobject/singleobject";
 
-export default class Supermarche extends Component {
+class Supermarche extends Component {
   render() {
+    const product = this.props.products;
+    const cat = product.filter((item) =>
+      item.categorie === "supermarche" ? true : false
+    );
     return (
       <div>
-        <div className="box4">
+        <div className="box5">
           <div className="pad">
-            {product[0].products.map((prod, index) => (
-              <Singleobject key={index} productData={prod} />
+            {cat.map((prod) => (
+              <Singleobject key={prod.id} productData={prod} />
             ))}
           </div>
         </div>
@@ -17,3 +21,11 @@ export default class Supermarche extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    products: state.shop.products,
+  };
+};
+
+export default connect(mapStateToProps)(Supermarche);

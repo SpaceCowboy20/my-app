@@ -7,7 +7,6 @@ import { connect } from "react-redux";
 class Groupobject extends Component {
   render() {
     const products = this.props.products;
-    console.log(products);
     return (
       <div>
         <div className="pad">

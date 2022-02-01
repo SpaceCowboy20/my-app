@@ -4,8 +4,7 @@ import Singleobject from "../components/mainpage/groupobject/singleobject/single
 
 class Auto extends Component {
   render() {
-    const product = this.props.products[10].products;
-    console.log(product);
+    const product = this.props.products;
     return (
       <div>
         <div className="box5">

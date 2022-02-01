@@ -1,15 +1,18 @@
 import React, { Component } from "react";
-import { product } from "../components/datasamples/sample";
 import Singleobject from "../components/mainpage/groupobject/singleobject/singleobject";
 import { connect } from "react-redux";
 
 class Bebe extends Component {
   render() {
+    const product = this.props.products;
+    const cat = product.filter((item) =>
+      item.categorie === "Bebe" ? true : false
+    );
     return (
       <div>
         <div className="box4">
           <div className="pad">
-            {product[8].products.map((prod, index) => (
+            {cat.map((prod, index) => (
               <Singleobject key={index} productData={prod} />
             ))}
           </div>
