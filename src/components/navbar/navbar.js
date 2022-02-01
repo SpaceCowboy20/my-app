@@ -27,7 +27,7 @@ class Navbar extends Component {
         </div>
 
         <div className="elements">
-          <button className="login-btn">Login</button>
+          <button className="login-btn">Login/Signup</button>
           <BiIcons.BiHeart className="heart" />
           <BiIcons.BiCartAlt className="cart" />
           <HiIcons.HiOutlineViewList className="menu" />
