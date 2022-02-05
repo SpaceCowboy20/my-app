@@ -10,12 +10,10 @@ class Groupobject extends Component {
     const _ = require("lodash");
     const sample = _.sampleSize(products, 12);
     return (
-      <div>
-        <div className="pad">
-          {sample.map((prod, index) => (
-            <Singleobject key={index} productData={prod} />
-          ))}
-        </div>
+      <div className="pad">
+        {sample.map((prod, index) => (
+          <Singleobject key={index} productData={prod} />
+        ))}
       </div>
     );
   }

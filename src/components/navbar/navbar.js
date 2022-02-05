@@ -8,10 +8,10 @@ import { Link } from "react-router-dom";
 class Navbar extends Component {
   render() {
     return (
-      <div className="nav-box">
+      <div className="navbox">
         <Link to="/">
           <div className="logo-box">
-            <img className="image" src={logo} alt="" />
+            <img className="logo" src={logo} alt="" />
           </div>
         </Link>
 
@@ -25,10 +25,16 @@ class Navbar extends Component {
           <FaIcons.FaSearch className="search-btn" />
         </div>
 
-        <div className="elements">
-          <button className="login-btn">Login/Signup</button>
-          <BiIcons.BiHeart className="heart" />
-          <BiIcons.BiCartAlt className="cart" />
+        <div className="navbar-elements">
+          <Link to="/profile">
+            <button className="login-btn">Login/Signup</button>
+          </Link>
+          <Link to="/heart">
+            <BiIcons.BiHeart className="heart" />
+          </Link>
+          <Link to="cart">
+            <BiIcons.BiCartAlt className="cart" />
+          </Link>
           <HiIcons.HiOutlineViewList className="menu" />
         </div>
       </div>

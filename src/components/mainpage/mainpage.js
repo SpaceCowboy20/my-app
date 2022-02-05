@@ -5,13 +5,11 @@ import Groupobject from "./groupobject/groupobject";
 class Mainpage extends Component {
   render() {
     return (
-      <div>
-        <div className="box4">
-          {/*import Banners from "../banners/banners";
+      <div className="mainboard">
+        {/*import Banners from "../banners/banners";
             <Banners></Banners>*/}
-          <Categorielist></Categorielist>
-          <Groupobject></Groupobject>
-        </div>
+        <Categorielist></Categorielist>
+        <Groupobject></Groupobject>
       </div>
     );
   }

@@ -1,22 +1,25 @@
 import React, { Component } from "react";
-import "./sidemenu.css";
+import { Link } from "react-router-dom";
 import { categorielist } from "../datasamples/categorielist";
 
 class Sidemenu extends Component {
   render() {
     return (
-      <div>
-        <div className="sidemenubox">
-          <ul type="none" className="categorielist">
-            {categorielist.map((item, index) => {
-              return (
+      <div className="sidemenubox">
+        <ul type="none" className="categorielist">
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+          {categorielist.map((item, index) => {
+            return (
+              <Link to={item.path} key={index}>
                 <li key={index} className={item.cName}>
                   {item.title}
                 </li>
-              );
-            })}
-          </ul>
-        </div>
+              </Link>
+            );
+          })}
+        </ul>
       </div>
     );
   }

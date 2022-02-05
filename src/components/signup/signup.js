@@ -5,7 +5,7 @@ class Signup extends Component {
   render() {
     return (
       <div>
-        <div className="box2"></div>
+        <div className="board"></div>
       </div>
     );
   }

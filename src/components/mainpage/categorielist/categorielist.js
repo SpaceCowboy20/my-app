@@ -7,18 +7,18 @@ class Categorielist extends Component {
     return (
       <div>
         <div className="pad">
-          <div className="cat-title">
-            <p className="text">Catégories</p>
+          <div className="pad-title-box">
+            <p className="pad-title-text">Catégories</p>
           </div>
           {categorielist.map((item, index) => {
             return (
               <Link to={item.path} key={index}>
                 <div className="card" key={index}>
-                  <div className="img-div">
-                    <img src={item.image} alt="" className="img-box"></img>
+                  <div className="card-img-box">
+                    <img src={item.image} alt="" className="card-img"></img>
                   </div>
-                  <div className="text-div">
-                    <p className="img-cat-text">{item.title}</p>
+                  <div className="card-text-box">
+                    <p className="card-text">{item.title}</p>
                   </div>
                 </div>
               </Link>

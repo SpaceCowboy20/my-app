@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Singleobject from "../components/mainpage/groupobject/singleobject/singleobject";
 import { connect } from "react-redux";
+import Sidemenu from "../components/sidemenu/sidemenu";
 
 class Bebe extends Component {
   render() {
@@ -10,6 +11,7 @@ class Bebe extends Component {
     );
     return (
       <div>
+        <Sidemenu />
         <div className="box4">
           <div className="pad">
             {cat.map((prod, index) => (

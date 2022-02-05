@@ -1,14 +1,24 @@
 import React, { Component } from "react";
-import { product } from "../components/datasamples/sample";
+import { connect } from "react-redux";
 import Singleobject from "../components/mainpage/groupobject/singleobject/singleobject";
 
-export default class Cart extends Component {
+class Cart extends Component {
   render() {
+    const cart = this.props.cart;
+    console.log(cart);
     return (
       <div>
-        <div className="box4">
-          <div className="pad">
-            {product[10].products.map((prod, index) => (
+        <div className="board">
+          <div className="pad profil1">
+            <div className="backstore ">tableau de bord</div>
+            <div className="backstore">informations utilisateur</div>
+            <div className="backstore">commandes</div>
+            <div className="backstore selected">panier</div>
+            <div className="backstore">wishliste</div>
+            <div className="backstore">devenir vendeur</div>
+          </div>
+          <div className="pad profil2">
+            {cart.map((prod, index) => (
               <Singleobject key={index} productData={prod} />
             ))}
           </div>
@@ -17,3 +27,10 @@ export default class Cart extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    cart: state.shop.cart,
+  };
+};
+export default connect(mapStateToProps)(Cart);
