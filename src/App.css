@@ -309,3 +309,50 @@ body {
 }
 
 /*SideMenu/*/
+
+/*Group list card*/
+.card2 {
+  height: 12rem;
+  width: 11rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.cardimage {
+  height: 12rem;
+  width: 11rem;
+  top: 0;
+  position: absolute;
+}
+/*Group list card*/
+
+.textdiv {
+  height: 2.5rem;
+  width: 11rem;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  position: absolute;
+}
+
+.nom {
+  text-decoration: none;
+  color: #f0f8ff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.nom:hover {
+  overflow: visible;
+}

@@ -13,12 +13,10 @@ class Categorielist extends Component {
           {categorielist.map((item, index) => {
             return (
               <Link to={item.path} key={index}>
-                <div className="card" key={index}>
-                  <div className="card-img-box">
-                    <img src={item.image} alt="" className="card-img"></img>
-                  </div>
-                  <div className="card-text-box">
-                    <p className="card-text">{item.title}</p>
+                <div className="card2" key={index}>
+                  <img src={item.image} alt="" className="cardimage"></img>s
+                  <div className="textdiv">
+                    <p className="nom">{item.title}</p>
                   </div>
                 </div>
               </Link>
