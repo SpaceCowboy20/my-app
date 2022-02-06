@@ -9,16 +9,19 @@ class Singleobject extends Component {
     const addToCart = this.props.addToCart;
     return (
       <div className="card">
-        <div className="card-img-box">
-          <img
-            className="card-img"
-            src={productData.image}
-            alt={productData.title}
-          />
-        </div>
+        <img
+          className="card-img"
+          src={productData.image}
+          alt={productData.title}
+        />
         <div className="card-text-box">
           <BiIcons.BiHeart className="card-heart" />
-          <div className="card-text">{productData.title}</div>
+          <div className="card-title-box">
+            <p className="card-title card-text">{productData.title}</p>
+          </div>
+          <div className="card-price-box">
+            <p className="card-price card-text">{productData.price}</p>
+          </div>
           <BiIcons.BiCartAlt
             onClick={() => addToCart(productData.id)}
             className="card-cart"
