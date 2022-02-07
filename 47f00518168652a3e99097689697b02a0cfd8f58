@@ -1,0 +1,65 @@
+[33mcommit 96ec15b48793d709a2115679668d5a6ee6fec1f3[m[33m ([m[1;36mHEAD -> [m[1;32mhou[m[33m, [m[1;31morigin/hou[m[33m, [m[1;32mmaster[m[33m)[m
+Author: SpaceCowboy20 <housseine18@gmail.com>
+Date:   Sun Feb 6 16:24:58 2022 +0100
+
+    try correct card
+
+[33mcommit 75110becf4f966f0c45b1f9304896c4df93c05ca[m
+Author: SpaceCowboy20 <housseine18@gmail.com>
+Date:   Sat Feb 5 14:44:13 2022 +0100
+
+    catégorie image agrandie
+
+[33mcommit 47f00518168652a3e99097689697b02a0cfd8f58[m
+Author: SpaceCowboy20 <housseine18@gmail.com>
+Date:   Sat Feb 5 14:09:58 2022 +0100
+
+    almost functional
+
+[33mcommit 74f620a9d387678192c88275796100d10e27a8b9[m
+Author: SpaceCowboy20 <housseine18@gmail.com>
+Date:   Tue Feb 1 18:09:49 2022 +0100
+
+    v
+
+[33mcommit b708d19fd7c85d345ced455194dd1c5350121c89[m
+Author: SpaceCowboy20 <housseine18@gmail.com>
+Date:   Tue Feb 1 04:55:30 2022 +0100
+
+    .
+
+[33mcommit 1384bb849debad264da42b173cfec97b56177333[m
+Author: SpaceCowboy20 <housseine18@gmail.com>
+Date:   Tue Feb 1 04:51:00 2022 +0100
+
+    links done
+
+[33mcommit 4a11914119834b563a2847429854d18737a4d216[m
+Author: SpaceCowboy20 <housseine18@gmail.com>
+Date:   Tue Feb 1 04:21:33 2022 +0100
+
+    categorie pages done
+
+[33mcommit 3b7d785f7a9c0665fdd16397a2e50883be02be57[m
+Author: SpaceCowboy20 <housseine18@gmail.com>
+Date:   Tue Feb 1 02:44:56 2022 +0100
+
+    cart in state ready
+
+[33mcommit f72376094fee539460e2f2578c62723fd4ec40f5[m
+Author: SpaceCowboy20 <housseine18@gmail.com>
+Date:   Mon Jan 31 23:02:19 2022 +0100
+
+    progress
+
+[33mcommit 41e2c0d3c1139f5f617e1cbe517aa57bc84963a5[m
+Author: SpaceCowboy20 <housseine18@gmail.com>
+Date:   Sun Jan 30 22:35:58 2022 +0100
+
+    initial push
+
+[33mcommit dc2f3cfbec75de99886a738fe2f9685f06b77d20[m
+Author: SpaceCowboy20 <housseine18@gmail.com>
+Date:   Sat Dec 25 15:15:56 2021 +0100
+
+    Initialize project using Create React App

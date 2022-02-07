@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Singleobject from "../components/mainpage/groupobject/singleobject/singleobject";
+import Cartobject from "../components/cart/cartobject";
 
 class Cart extends Component {
   render() {
@@ -19,7 +19,7 @@ class Cart extends Component {
           </div>
           <div className="pad profil2">
             {cart.map((prod, index) => (
-              <Singleobject key={index} productData={prod} />
+              <Cartobject key={index} productData={prod} />
             ))}
           </div>
         </div>

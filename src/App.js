@@ -17,6 +17,7 @@ import Heart from "./pages/Heart";
 import Cart from "./pages/cart";
 import Maison from "./pages/maisonbureau";
 import Supermarche from "./pages/supermarche";
+import Signup from "./pages/signup";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/telephone" element={<Telephone />} />
           <Route path="/heart" element={<Heart />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/signup" element={<Signup></Signup>}></Route>
         </Routes>
       </Router>
     </div>

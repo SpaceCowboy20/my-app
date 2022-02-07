@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  margin-top: 7rem;
 }
 
 .App {
@@ -139,7 +140,6 @@ body {
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  margin-top: 7rem;
   margin-bottom: 3rem;
   box-shadow: 0px 0px 25px 3px rgba(0, 0, 0, 0.5);
   border-radius: 0.4rem;
@@ -373,5 +373,28 @@ body {
   overflow: visible;
 }
 
-.card {
+.profil3 {
+  height: 20;
+  width: 40;
+  background-color: #e84118;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signupboard {
+  width: 20rem;
+}
+
+.cartobject {
+  height: 10rem;
+  width: 30rem;
+  background-color: #e84118;
+}
+
+.img {
+  height: 10rem;
+  width: 10rem;
+  float: left;
 }
