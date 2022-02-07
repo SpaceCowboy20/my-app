@@ -16,12 +16,12 @@ class Singleobject extends Component {
         />
         <div className="card-text-box">
           <BiIcons.BiHeart className="card-heart" />
-          <div className="card-title-box">
-            <p className="card-title card-text">{productData.title}</p>
-          </div>
-          <div className="card-price-box">
-            <p className="card-price card-text">{productData.price}</p>
-          </div>
+          
+            <span className="card-title card-text">{productData.title}</span>
+          
+          
+            <span className="card-price card-text">{productData.price}</span>
+         
           <BiIcons.BiCartAlt
             onClick={() => addToCart(productData.id)}
             className="card-cart"
