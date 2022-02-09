@@ -1,0 +1,20 @@
+.cartobject {
+  height: 9rem;
+  width: 20rem;
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  background-color: aqua;
+}
+
+.cart-img-box {
+  height: 7rem;
+  width: 7rem;
+  margin: 1rem;
+}
+
+.cart-img {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 5px;
+}

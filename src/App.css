@@ -386,15 +386,3 @@ body {
 .signupboard {
   width: 20rem;
 }
-
-.cartobject {
-  height: 10rem;
-  width: 30rem;
-  background-color: #e84118;
-}
-
-.img {
-  height: 10rem;
-  width: 10rem;
-  float: left;
-}
