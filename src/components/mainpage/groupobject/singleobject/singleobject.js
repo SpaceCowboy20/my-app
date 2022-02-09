@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addToCart } from "../../../../state/shopping/shopping-actions";
 import * as BiIcons from "react-icons/bi";
+import "./singleobject.css";
 
 class Singleobject extends Component {
   render() {
@@ -17,7 +18,7 @@ class Singleobject extends Component {
         <div className="card-text-box">
           <BiIcons.BiHeart className="card-heart" />
           <div className="card-title-box">
-            <p className="card-title card-text">{productData.title}</p>
+            <p className="card-title card-text">{productData.title} </p>
           </div>
           <div className="card-price-box">
             <p className="card-price card-text">{productData.price}</p>
