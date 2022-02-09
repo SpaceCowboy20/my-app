@@ -18,6 +18,7 @@ import Cart from "./pages/cart";
 import Maison from "./pages/maisonbureau";
 import Supermarche from "./pages/supermarche";
 import Signup from "./pages/signup";
+import Login from "./pages/login";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/heart" element={<Heart />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/signup" element={<Signup></Signup>}></Route>
+          <Route path="/login" element={<Login></Login>}></Route>
         </Routes>
       </Router>
     </div>
