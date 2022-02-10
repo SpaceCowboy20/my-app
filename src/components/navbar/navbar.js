@@ -1,11 +1,29 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import logo from "./logo.png";
 import * as FaIcons from "react-icons/fa";
 import * as BiIcons from "react-icons/bi";
 import * as HiIcons from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class Navbar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      counter: 0,
+    };
+  }
+  componentDidUpdate(prevProps, prevState) {
+    let count = 0;
+    let cart = this.props.cart;
+    cart.forEach((element) => {
+      count = count + element.qty;
+    });
+    if (prevState === this.state) {
+      this.setState({ counter: count });
+    }
+  }
   render() {
     return (
       <div className="navbox">
@@ -30,10 +48,15 @@ class Navbar extends Component {
             <button className="login-btn">Login/Signup</button>
           </Link>
           <Link to="/heart">
-            <BiIcons.BiHeart className="heart" />
+            <div className="heart-box">
+              <BiIcons.BiHeart className="heart" />
+            </div>
           </Link>
           <Link to="cart">
-            <BiIcons.BiCartAlt className="cart" />
+            <div className="cart-box">
+              <BiIcons.BiCartAlt className="cart" />
+              <span className="badge">{this.state.counter}</span>
+            </div>
           </Link>
           <HiIcons.HiOutlineViewList className="menu" />
         </div>
@@ -42,4 +65,10 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+const mapStateToProps = (state) => {
+  return {
+    cart: state.shop.cart,
+  };
+};
+
+export default connect(mapStateToProps)(Navbar);
