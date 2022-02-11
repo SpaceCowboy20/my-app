@@ -165,15 +165,18 @@ body {
   width: 15rem;
   height: 28rem;
   position: absolute;
+  border-radius: 5px;
 }
 
 .profil2 {
   right: 2rem;
   top: -1rem;
   width: 44rem;
-  height: 28rem;
+  height: 30rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   position: absolute;
+  padding: 0;
+  border-radius: 5px;
 }
 .selected {
   background-color: gold;
@@ -412,4 +415,28 @@ body {
   align-items: center;
   background-color: #f0f8ff;
   border: 1px solid #2f3640;
+}
+
+.cart-items {
+  width: 24rem;
+  height: 29rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-y: scroll;
+  padding-right: 1rem;
+  overflow-x: hidden;
+}
+.cart-items:first-child {
+  margin-top: 1rem;
+}
+
+.cart-items:last-child {
+  margin-bottom: 2rem;
+}
+
+.cart-total {
+  width: 19rem;
+  height: inherit;
 }

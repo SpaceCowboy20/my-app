@@ -3,9 +3,38 @@ import { connect } from "react-redux";
 import Cartobject from "../components/cart/cartobject";
 
 class Cart extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      totalPrice: 0,
+      totalItems: 0,
+    };
+  }
+  componentDidUpdate(prevProps, prevState) {
+    let pricez = 0;
+    let itemcount = 0;
+    let cart = this.props.cart;
+    cart.forEach((item) => {
+      itemcount += item.qty;
+      pricez += item.qty * item.price;
+    });
+    if (prevState === this.state) {
+      this.setState({ totalPrice: pricez, totalItems: itemcount });
+    }
+  }
+  componentDidMount() {
+    let pricez = 0;
+    let itemcount = 0;
+    let cart = this.props.cart;
+    cart.forEach((item) => {
+      itemcount += item.qty;
+      pricez += item.qty * item.price;
+    });
+    this.setState({ totalPrice: pricez, totalItems: itemcount });
+  }
   render() {
     const cart = this.props.cart;
-    console.log(cart);
     return (
       <div>
         <div className="board">
@@ -18,9 +47,16 @@ class Cart extends Component {
             <div className="backstore">devenir vendeur</div>
           </div>
           <div className="pad profil2">
-            {cart.map((prod, index) => (
-              <Cartobject key={index} productData={prod} />
-            ))}
+            <div className="cart-items">
+              {cart.map((prod, index) => (
+                <Cartobject key={index} productData={prod} />
+              ))}
+            </div>
+            <div className="cart-total">
+              <h2>Total</h2>
+              <p>total items {this.state.totalItems}</p>
+              <p>total price {this.state.totalPrice}</p>
+            </div>
           </div>
         </div>
       </div>
