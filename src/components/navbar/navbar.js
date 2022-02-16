@@ -14,6 +14,14 @@ class Navbar extends Component {
       counter: 0,
     };
   }
+  componentDidMount() {
+    let count = 0;
+    let cart = this.props.cart;
+    cart.forEach((element) => {
+      count = count + element.qty;
+    });
+    this.setState({ counter: count });
+  }
   componentDidUpdate(prevProps, prevState) {
     let count = 0;
     let cart = this.props.cart;
@@ -22,6 +30,7 @@ class Navbar extends Component {
     });
     if (prevState === this.state) {
       this.setState({ counter: count });
+      window.localStorage.setItem("cart", JSON.stringify(cart));
     }
   }
   render() {
