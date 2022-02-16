@@ -5,6 +5,7 @@ const INITIAT_STATE = {
   products: products,
   cart: [],
   currentItem: null,
+  heart: [],
 };
 
 const shopReducer = (state = INITIAT_STATE, action) => {
@@ -24,10 +25,29 @@ const shopReducer = (state = INITIAT_STATE, action) => {
             )
           : [...state.cart, { ...item, qty: 1 }],
       };
+
+    case actionTypes.ADD_TO_HEART:
+      const items = state.products.find(
+        (prod) => prod.id === action.payload.id
+      );
+      const inHeart = state.heart.find((item) =>
+        item.id === action.payload.id ? true : false
+      );
+      return {
+        ...state,
+        heart: inHeart ? [...state.heart] : [...state.heart, items],
+      };
+
     case actionTypes.REMOVE_FROM_CART:
       return {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload.id),
+      };
+
+    case actionTypes.REMOVE_FROM_HEART:
+      return {
+        ...state,
+        heart: state.heart.filter((item) => item.id !== action.payload.id),
       };
     case actionTypes.ADJ_QTY:
       return {

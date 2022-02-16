@@ -16,6 +16,14 @@ export const removeFromCart = (itemID) => {
     },
   };
 };
+export const removeFromHeart = (itemID) => {
+  return {
+    type: actionTypes.REMOVE_FROM_HEART,
+    payload: {
+      id: itemID,
+    },
+  };
+};
 export const adjust = (itemID, value) => {
   return {
     type: actionTypes.ADJ_QTY,
@@ -29,5 +37,14 @@ export const loadCurrent = (item) => {
   return {
     type: actionTypes.LOAD_CURRENT_ITEM,
     payload: item,
+  };
+};
+
+export const addToHeart = (itemID) => {
+  return {
+    type: actionTypes.ADD_TO_HEART,
+    payload: {
+      id: itemID,
+    },
   };
 };

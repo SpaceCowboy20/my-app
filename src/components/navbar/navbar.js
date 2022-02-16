@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component } from "react";
 import logo from "./logo.png";
 import * as FaIcons from "react-icons/fa";
 import * as BiIcons from "react-icons/bi";
@@ -40,7 +40,9 @@ class Navbar extends Component {
             name=""
             placeholder="search"
           />
-          <FaIcons.FaSearch className="search-btn" />
+          <Link to="/search">
+            <FaIcons.FaSearch className="search-btn" />
+          </Link>
         </div>
 
         <div className="navbar-elements">

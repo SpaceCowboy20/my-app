@@ -19,6 +19,8 @@ import Maison from "./pages/maisonbureau";
 import Supermarche from "./pages/supermarche";
 import Signup from "./pages/signup";
 import Login from "./pages/login";
+import Search from "./pages/search";
+import Product from "./components/product/product";
 
 function App() {
   return (
@@ -44,6 +46,8 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/signup" element={<Signup></Signup>}></Route>
           <Route path="/login" element={<Login></Login>}></Route>
+          <Route path="/search" element={<Search></Search>}></Route>
+          <Route path="/product/:id" element={<Product></Product>}></Route>
         </Routes>
       </Router>
     </div>

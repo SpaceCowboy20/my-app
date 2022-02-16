@@ -12,26 +12,26 @@ class Cart extends Component {
     };
   }
   componentDidUpdate(prevProps, prevState) {
-    let pricez = 0;
+    let price = 0;
     let itemcount = 0;
     let cart = this.props.cart;
     cart.forEach((item) => {
       itemcount += item.qty;
-      pricez += item.qty * item.price;
+      price += item.qty * item.price;
     });
     if (prevState === this.state) {
-      this.setState({ totalPrice: pricez, totalItems: itemcount });
+      this.setState({ totalPrice: price, totalItems: itemcount });
     }
   }
   componentDidMount() {
-    let pricez = 0;
+    let price = 0;
     let itemcount = 0;
     let cart = this.props.cart;
     cart.forEach((item) => {
       itemcount += item.qty;
-      pricez += item.qty * item.price;
+      price += item.qty * item.price;
     });
-    this.setState({ totalPrice: pricez, totalItems: itemcount });
+    this.setState({ totalPrice: price, totalItems: itemcount });
   }
   render() {
     const cart = this.props.cart;
