@@ -1,23 +1,28 @@
-import React, { Component } from "react";
+import React from "react";
+import { useParams } from "react-router-dom";
+import { connect } from "react-redux";
 
-class Product extends Component {
-  render() {
-    return (
+function Product({ products }) {
+  let { id } = useParams();
+  let filter = products.filter((items) => (items.id == id ? true : false));
+  let item = filter[0];
+  console.log(item);
+  return (
+    <div>
       <div className="board">
-        <img
-          src="https://goat.com.au/wp-content/uploads/2018/11/Spike-Blade-Runner.png"
-          alt=""
-          width={500}
-          height={500}
-        />
-        <h2>SpaceCowboy</h2>
-        <h5>description</h5>
-        <h1>{this.props.id}</h1>
-        <button></button>
-        <button></button>
+        <img src={item.image} alt="" width={500} height={500} />
+        <h2>{item.title}</h2>
+        <h5>{item.description}</h5>
+        <h1>{item.price}</h1>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
-export default Product;
+const mapStateToProps = (state) => {
+  return {
+    products: state.shop.products,
+  };
+};
+
+export default connect(mapStateToProps)(Product);

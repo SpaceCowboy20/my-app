@@ -19,34 +19,34 @@ class Cartobject extends Component {
     const adjust = this.props.adjust;
     return (
       <div>
-        <Link to={`/product/${productData.id}`}>
-          <div className="cartobject">
-            <div className="cart-img-box">
-              <img src={productData.image} alt="" className="cart-img" />
-            </div>
-            <div className="cart-text-box">
-              <p>{productData.title}</p>
-              <p>{productData.description}</p>
-              <p>{productData.price}</p>
-              <input
-                type="number"
-                min="1"
-                className="quantity"
-                value={this.state.qty}
-                onChange={(e) => {
-                  this.setState({ qty: e.target.value });
-                  adjust(productData.id, e.target.value);
-                }}
-              />
-              <AiIcons.AiFillDelete
-                className="delete"
-                onClick={() => {
-                  removeFromCart(productData.id);
-                }}
-              />
-            </div>
+        <div className="cartobject">
+          <div className="cart-img-box">
+            <img src={productData.image} alt="" className="cart-img" />
           </div>
-        </Link>
+          <div className="cart-text-box">
+            <Link to={`/product/${productData.id}`}>
+              <p>{productData.title}</p>
+            </Link>
+            <p>{productData.description}</p>
+            <p>{productData.price}</p>
+            <input
+              type="number"
+              min="1"
+              className="quantity"
+              value={this.state.qty}
+              onChange={(event) => {
+                this.setState({ qty: event.target.value });
+                adjust(productData.id, event.target.value);
+              }}
+            />
+            <AiIcons.AiFillDelete
+              className="delete"
+              onClick={() => {
+                removeFromCart(productData.id);
+              }}
+            />
+          </div>
+        </div>
       </div>
     );
   }
