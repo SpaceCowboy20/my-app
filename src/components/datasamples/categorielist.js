@@ -1,16 +1,3 @@
-import supermarche from "../../imgs/supermarche.jpg";
-import maison from "../../imgs/meubles.jpg";
-import sante from "../../imgs/sante.jpg";
-import info from "../../imgs/informatique.jpg";
-import mode from "../../imgs/mode.jpg";
-import electro from "../../imgs/electromenager.jpg";
-import sport from "../../imgs/sport.jpg";
-import telephone from "../../imgs/telephonie.jpg";
-import bebe from "../../imgs/bebe.jpg";
-import jeux from "../../imgs/jeux.jpg";
-import auto from "../../imgs/voiture.jpg";
-import autres from "../../imgs/autres.jpg";
-
 export const categorielist = [
   {
     title: "Supermarche",
