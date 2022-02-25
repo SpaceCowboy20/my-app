@@ -22,8 +22,27 @@ import Login from "./pages/login";
 import Search from "./pages/search";
 import Product from "./components/product/product";
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getallProds } from "./state/shopping/shopping-actions";
 
 class App extends Component {
+  componentDidMount() {
+    let getprod = async () => {
+      let options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      let response = await fetch("http://192.168.2.133:780/allprod", options)
+        .then((res) => res.json())
+        .then((res) => res.products);
+
+      let getall = this.props.getallProds;
+      getall(response);
+    };
+    getprod();
+  }
   render() {
     return (
       <div className="App">
@@ -57,4 +76,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getallProds: (products) => dispatch(getallProds(products)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(App);

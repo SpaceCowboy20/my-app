@@ -19,7 +19,7 @@ class Heartobject extends Component {
           <AiIcons.AiFillDelete
             className="delete"
             onClick={() => {
-              removeFromHeart(productData.id);
+              removeFromHeart(productData._id);
             }}
           />
         </div>
@@ -29,7 +29,7 @@ class Heartobject extends Component {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    removeFromHeart: (id) => dispatch(removeFromHeart(id)),
+    removeFromHeart: (_id) => dispatch(removeFromHeart(_id)),
   };
 };
 

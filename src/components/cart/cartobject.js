@@ -17,6 +17,7 @@ class Cartobject extends Component {
     const productData = this.props.productData;
     const removeFromCart = this.props.removeFromCart;
     const adjust = this.props.adjust;
+    console.log(productData);
     return (
       <div>
         <div className="cartobject">
