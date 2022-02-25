@@ -24,7 +24,7 @@ class Cartobject extends Component {
             <img src={productData.image} alt="" className="cart-img" />
           </div>
           <div className="cart-text-box">
-            <Link to={`/product/${productData.id}`}>
+            <Link to={`/product/${productData._id}`}>
               <p>{productData.title}</p>
             </Link>
             <p>{productData.description}</p>
@@ -36,13 +36,13 @@ class Cartobject extends Component {
               value={this.state.qty}
               onChange={(event) => {
                 this.setState({ qty: event.target.value });
-                adjust(productData.id, event.target.value);
+                adjust(productData._id, event.target.value);
               }}
             />
             <AiIcons.AiFillDelete
               className="delete"
               onClick={() => {
-                removeFromCart(productData.id);
+                removeFromCart(productData._id);
               }}
             />
           </div>
@@ -54,8 +54,8 @@ class Cartobject extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    adjust: (id, value) => dispatch(adjust(id, value)),
-    removeFromCart: (id) => dispatch(removeFromCart(id)),
+    adjust: (_id, value) => dispatch(adjust(_id, value)),
+    removeFromCart: (_id) => dispatch(removeFromCart(_id)),
   };
 };
 

@@ -24,9 +24,9 @@ class Singleobject extends Component {
           <div className="card-text-box">
             <BiIcons.BiHeart
               className="card-heart"
-              onClick={() => addToHeart(productData.id)}
+              onClick={() => addToHeart(productData._id)}
             />
-            <Link to={`/product/${productData.id}`}>
+            <Link to={`/product/${productData._id}`}>
               <div className="card-title-box">
                 <p className="card-title card-text">{productData.title} </p>
               </div>
@@ -35,7 +35,7 @@ class Singleobject extends Component {
               <p className="card-price card-text">{productData.price}</p>
             </div>
             <BiIcons.BiCartAlt
-              onClick={() => addToCart(productData.id)}
+              onClick={() => addToCart(productData._id)}
               className="card-cart"
             />
           </div>
@@ -47,8 +47,8 @@ class Singleobject extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (id) => dispatch(addToCart(id)),
-    addToHeart: (id) => dispatch(addToHeart(id)),
+    addToCart: (_id) => dispatch(addToCart(_id)),
+    addToHeart: (_id) => dispatch(addToHeart(_id)),
   };
 };
 

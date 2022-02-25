@@ -8,6 +8,14 @@ export const addToCart = (itemID) => {
     },
   };
 };
+
+export const getallProds = (products) => {
+  return {
+    type: actionTypes.GET_ALL_PRODUCTS,
+    payload: { products },
+  };
+};
+
 export const removeFromCart = (itemID) => {
   return {
     type: actionTypes.REMOVE_FROM_CART,

@@ -392,6 +392,11 @@ body a {
 
 .signupboard {
   width: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .badge {
@@ -456,4 +461,21 @@ body a {
 .search-page-box input {
   width: 20rem;
   height: 3rem;
+}
+
+.username {
+  width: 15rem;
+  height: 3rem;
+}
+
+.password {
+  width: 15rem;
+  height: 3rem;
+}
+
+.button {
+  width: 15rem;
+  height: 3rem;
+  background-color: #e84118;
+  border: 1px solid #2f3640;
 }

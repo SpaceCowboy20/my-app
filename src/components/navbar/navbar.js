@@ -34,6 +34,7 @@ class Navbar extends Component {
     }
   }
   render() {
+    let isLogged = this.props.isLogged.isLogged;
     return (
       <div className="navbox">
         <Link to="/">
@@ -55,9 +56,15 @@ class Navbar extends Component {
         </div>
 
         <div className="navbar-elements">
-          <Link to="/profile">
-            <button className="login-btn">Login/Signup</button>
-          </Link>
+          {isLogged ? (
+            <Link to="/profile">
+              <button className="login-btn">profile</button>
+            </Link>
+          ) : (
+            <Link to="/login">
+              <button className="login-btn">Login/Signup</button>
+            </Link>
+          )}
           <Link to="/heart">
             <div className="heart-box">
               <BiIcons.BiHeart className="heart" />
@@ -79,6 +86,7 @@ class Navbar extends Component {
 const mapStateToProps = (state) => {
   return {
     cart: state.shop.cart,
+    isLogged: state.isLogged,
   };
 };
 

@@ -1,8 +1,7 @@
-import { products } from "../../components/datasamples/productsSample";
 import * as actionTypes from "./shopping-types";
 
 const INITIAT_STATE = {
-  products: products,
+  products: [],
   cart: JSON.parse(window.localStorage.getItem("cart")),
   currentItem: null,
   heart: [],
@@ -10,6 +9,11 @@ const INITIAT_STATE = {
 
 const shopReducer = (state = INITIAT_STATE, action) => {
   switch (action.type) {
+    case actionTypes.GET_ALL_PRODUCTS:
+      return {
+        ...state,
+        products: action.payload.products,
+      };
     case actionTypes.ADD_TO_CART:
       const item = state.products.find((prod) => prod.id === action.payload.id);
       const inCart = state.cart.find((item) =>

@@ -2,8 +2,27 @@ import React, { Component } from "react";
 import Singleobject from "./singleobject/singleobject";
 import "./singleobject/singleobject";
 import { connect } from "react-redux";
+import { getallProds } from "../../../state/shopping/shopping-actions";
 
 class Groupobject extends Component {
+  componentDidMount() {
+    let getprod = async () => {
+      let options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      let response = await fetch("http://192.168.2.133:780/allprod", options)
+        .then((res) => res.json())
+        .then((res) => res.products);
+
+      let getall = this.props.getallProds;
+      getall(response);
+    };
+    getprod();
+  }
+
   render() {
     const products = this.props.products;
 
@@ -35,11 +54,14 @@ class Groupobject extends Component {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  products: state.shop.products,
+});
 
-const mapStateToProps = (state) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    products: state.shop.products,
+    getallProds: (products) => dispatch(getallProds(products)),
   };
 };
 
-export default connect(mapStateToProps)(Groupobject);
+export default connect(mapStateToProps, mapDispatchToProps)(Groupobject);
