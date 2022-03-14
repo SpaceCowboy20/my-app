@@ -481,14 +481,8 @@ body a {
 }
 
 .custom-slider {
-  height: 15rem;
+  height: 10rem;
   width: 30rem;
   overflow: hidden;
   position: relative;
-}
-
-.custom-slider li {
-  list-style: none;
-  position: absolute;
-  bottom: 10;
 }
