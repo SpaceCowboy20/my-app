@@ -1,6 +1,8 @@
 import Navbar from "./components/navbar/navbar";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { withRouter } from "./withRouter/withRouter";
+import { compose } from "redux";
 import Home from "./pages/Home";
 import Profile from "./pages/profile";
 import Auto from "./pages/Auto";
@@ -190,9 +192,9 @@ class App extends Component {
             />
             <Route path="/heart" element={<Heart />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/signup" element={<Signup></Signup>}></Route>
-            <Route path="/login" element={<Login></Login>}></Route>
-            <Route path="/search" element={<Search></Search>}></Route>
+            <Route path="/signup" element={<Signup />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/search" element={<Search />}></Route>
             <Route path="/product/:id" element={<Product />}></Route>
           </Routes>
         </Router>

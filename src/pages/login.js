@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "../withRouter/withRouter";
+import { compose } from "redux";
 
 class Login extends Component {
   constructor(props) {
@@ -30,6 +32,7 @@ class Login extends Component {
         type: "LOGIN",
       });
       localStorage.setItem("TOKEN", JSON.stringify(response.token));
+      this.props.navigate("/");
     }
   };
 
@@ -67,4 +70,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Login);
+export default compose(withRouter, connect(mapStateToProps))(Login);
