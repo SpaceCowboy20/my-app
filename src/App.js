@@ -1,8 +1,6 @@
 import Navbar from "./components/navbar/navbar";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { withRouter } from "./withRouter/withRouter";
-import { compose } from "redux";
 import Home from "./pages/Home";
 import Profile from "./pages/profile";
 import Auto from "./pages/Auto";
