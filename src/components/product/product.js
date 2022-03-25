@@ -6,8 +6,6 @@ function Product({ products }) {
   let { id } = useParams();
   let filter = products.filter((items) => (items._id === id ? true : false));
   let item = filter[0];
-  console.log(item);
-  console.log(products);
   return (
     <div>
       <div className="board">

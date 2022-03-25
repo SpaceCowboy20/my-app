@@ -69,6 +69,17 @@ const shopReducer = (state = INITIAT_STATE, action) => {
         ...state,
         currentItem: action.payload,
       };
+    case actionTypes.GET_HEARTS:
+      return {
+        ...state,
+        heart: action.payload,
+      };
+    case actionTypes.DELETE_HEARTS:
+      return {
+        ...state,
+        heart: [],
+      };
+
     default:
       return state;
   }

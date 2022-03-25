@@ -21,7 +21,7 @@ const App = () => {
       autoPlayInterval={3000}
       widgetsHasShadow={true}
       hasIndexBoard={false}
-      hasDotButtons={"bottomCenter"}
+      hasDotButtons={"bottom"}
       hasSizeButton={false}
       hasMediaButton={false}
       hasThumbnails={false}

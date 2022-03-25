@@ -56,3 +56,15 @@ export const addToHeart = (itemID) => {
     },
   };
 };
+
+export const getHearts = (hearts) => {
+  return {
+    type: actionTypes.GET_HEARTS,
+    payload: hearts,
+  };
+};
+export const deleteHeart = () => {
+  return {
+    type: actionTypes.DELETE_HEARTS,
+  };
+};
