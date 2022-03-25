@@ -235,6 +235,10 @@ body a {
   width: 240px;
   padding: 0 6px;
 }
+.search-text:focus {
+  width: 240px;
+  padding: 0 6px;
+}
 
 .search-box:hover > .search-btn {
   background: white;

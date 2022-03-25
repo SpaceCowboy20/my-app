@@ -1,28 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Singleobject from "../components/mainpage/groupobject/singleobject/singleobject";
+import { updateSearch } from "../state/search/search-actions";
 
 class Search extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      searchTerm: "",
-    };
-  }
   render() {
     const products = this.props.products;
-    const searchTerm = this.state.searchTerm;
+    const searchTerm = this.props.searchWord;
     return (
       <div>
         <div className="board">
-          <div className="search-page-box">
-            <input
-              onChange={(event) => {
-                this.setState({ searchTerm: event.target.value });
-              }}
-            />
-          </div>
           {products
             .filter((value) => {
               if (searchTerm === "") {
@@ -44,7 +31,14 @@ class Search extends Component {
 const mapStateToProps = (state) => {
   return {
     products: state.shop.products,
+    searchWord: state.search.searchTerm,
   };
 };
 
-export default connect(mapStateToProps)(Search);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    searchupdate: (word) => dispatch(updateSearch(word)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

@@ -6,6 +6,7 @@ import * as HiIcons from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { deleteHeart, getHearts } from "../../state/shopping/shopping-actions";
+import { updateSearch } from "../../state/search/search-actions";
 
 class Navbar extends Component {
   constructor(props) {
@@ -28,7 +29,6 @@ class Navbar extends Component {
     };
     let response = await fetch("http://localhost:780/getheart", options);
     let data = await response.json();
-    console.log(data.hearts);
 
     this.props.getHearts(data.hearts);
   };
@@ -36,7 +36,6 @@ class Navbar extends Component {
   updateHeart = async () => {
     let heart = this.props.heart;
     let token = JSON.parse(window.localStorage.getItem("TOKEN"));
-    console.log(heart);
     let options = {
       method: "POST",
       headers: {
@@ -95,9 +94,10 @@ class Navbar extends Component {
             type="text"
             name=""
             placeholder="search"
+            onChange={(event) => this.props.searchupdate(event.target.value)}
           />
           <Link to="/search">
-            <FaIcons.FaSearch className="search-btn" />
+            <FaIcons.FaSearch className="search-btn" onClick={() => {}} />
           </Link>
         </div>
 
@@ -141,6 +141,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getHearts: (hearts) => dispatch(getHearts(hearts)),
     deleteHeart: () => dispatch(deleteHeart()),
+    searchupdate: (word) => dispatch(updateSearch(word)),
   };
 };
 
