@@ -79,6 +79,11 @@ const shopReducer = (state = INITIAT_STATE, action) => {
         ...state,
         heart: [],
       };
+    case actionTypes.DELETE_ALL_CART:
+      return {
+        ...state,
+        cart: [],
+      };
 
     default:
       return state;

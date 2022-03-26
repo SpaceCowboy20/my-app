@@ -68,3 +68,9 @@ export const deleteHeart = () => {
     type: actionTypes.DELETE_HEARTS,
   };
 };
+
+export const deleteAllCart = () => {
+  return {
+    type: actionTypes.DELETE_ALL_CART,
+  };
+};

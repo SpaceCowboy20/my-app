@@ -4,6 +4,7 @@ import { withRouter } from "../withRouter/withRouter";
 import { compose } from "redux";
 import { deleteHeart, getHearts } from "../state/shopping/shopping-actions";
 import { login } from "../state/isLogged/isLogged-actions";
+import { Link } from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
@@ -44,7 +45,6 @@ class Login extends Component {
         };
         let response = await fetch("http://localhost:780/getheart", options);
         let data = await response.json();
-        console.log(data.hearts);
 
         this.props.getHearts(data.hearts);
       };
@@ -77,6 +77,8 @@ class Login extends Component {
         >
           Login
         </button>
+
+        <Link to="/signup">or signup</Link>
       </div>
     );
   }

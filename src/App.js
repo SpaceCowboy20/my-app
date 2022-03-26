@@ -24,6 +24,7 @@ import Product from "./components/product/product";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getallProds } from "./state/shopping/shopping-actions";
+import Checkout from "./pages/checkout";
 
 class App extends Component {
   constructor(props) {
@@ -193,6 +194,7 @@ class App extends Component {
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/search" element={<Search />}></Route>
+            <Route path="checkout" element={<Checkout />} />
             <Route path="/product/:id" element={<Product />}></Route>
           </Routes>
         </Router>

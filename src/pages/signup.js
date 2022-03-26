@@ -84,7 +84,9 @@ class Signup extends Component {
               this.state.region
             );
           }}
-        ></button>
+        >
+          signup
+        </button>
       </div>
     );
   }

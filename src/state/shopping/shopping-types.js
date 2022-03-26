@@ -7,3 +7,4 @@ export const LOAD_CURRENT_ITEM = "LOAD_CURRENT_ITEM";
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
 export const GET_HEARTS = "GET_HEARTS";
 export const DELETE_HEARTS = "DELETE_HEARTS";
+export const DELETE_ALL_CART = "DELETE_ALL_CART";

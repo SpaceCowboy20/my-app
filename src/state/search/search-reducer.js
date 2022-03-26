@@ -1,7 +1,7 @@
 import * as actionTypes from "./search-types";
 
 const INITIAT_STATE = {
-  searchTerm: "hou",
+  searchTerm: "",
 };
 
 const searchReducer = (state = INITIAT_STATE, action) => {

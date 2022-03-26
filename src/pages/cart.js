@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import Cartobject from "../components/cart/cartobject";
 
 class Cart extends Component {
@@ -56,6 +57,9 @@ class Cart extends Component {
               <h2>Total</h2>
               <p>total items {this.state.totalItems}</p>
               <p>total price {this.state.totalPrice}</p>
+              <Link to="/checkout">
+                <button>checkout</button>
+              </Link>
             </div>
           </div>
         </div>

@@ -7,12 +7,14 @@ import {
 import * as BiIcons from "react-icons/bi";
 import "./singleobject.css";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 
 class Singleobject extends Component {
   render() {
     const productData = this.props.productData;
     const addToCart = this.props.addToCart;
     const addToHeart = this.props.addToHeart;
+    const isLogged = this.props.isLogged;
     return (
       <div>
         <div className="card">
@@ -24,7 +26,11 @@ class Singleobject extends Component {
           <div className="card-text-box">
             <BiIcons.BiHeart
               className="card-heart"
-              onClick={() => addToHeart(productData._id)}
+              onClick={
+                isLogged
+                  ? () => addToHeart(productData._id)
+                  : () => swal("Login first", "or signup", "error")
+              }
             />
             <Link to={`/product/${productData._id}`}>
               <div className="card-title-box">
@@ -44,6 +50,11 @@ class Singleobject extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    isLogged: state.isLogged.isLogged,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -52,4 +63,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Singleobject);
+export default connect(mapStateToProps, mapDispatchToProps)(Singleobject);

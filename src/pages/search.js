@@ -17,7 +17,9 @@ class Search extends Component {
               } else if (
                 value.title.toLowerCase().includes(searchTerm.toLowerCase())
               ) {
-                return value;
+                return value.title
+                  .toLowerCase()
+                  .includes(searchTerm.toLowerCase());
               }
             })
             .map((product, index) => (
