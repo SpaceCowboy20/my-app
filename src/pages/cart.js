@@ -40,12 +40,24 @@ class Cart extends Component {
       <div>
         <div className="board">
           <div className="pad profil1">
-            <div className="backstore ">tableau de bord</div>
-            <div className="backstore">informations utilisateur</div>
-            <div className="backstore">commandes</div>
-            <div className="backstore selected">panier</div>
-            <div className="backstore">wishliste</div>
-            <div className="backstore">devenir vendeur</div>
+            <Link to="/dashboard">
+              <div className="backstore ">tableau de bord</div>
+            </Link>
+            <Link to="/profile">
+              <div className="backstore">informations utilisateur</div>
+            </Link>
+            <Link to="/heart">
+              <div className="backstore">wishliste</div>
+            </Link>
+            <Link to="/cart">
+              <div className="backstore selected">panier</div>
+            </Link>
+            <Link to="/orders">
+              <div className="backstore">commandes</div>
+            </Link>
+            <Link to="/cart">
+              <div className="backstore">devenir vendeur</div>
+            </Link>
           </div>
           <div className="pad profil2">
             <div className="cart-items">
