@@ -2,7 +2,7 @@ import * as actionTypes from "./shopping-types";
 
 const INITIAT_STATE = {
   products: [],
-  cart: JSON.parse(window.localStorage.getItem("cart")),
+  cart: JSON.parse(window.localStorage.getItem("cart")) || [],
   currentItem: null,
   heart: [],
 };
