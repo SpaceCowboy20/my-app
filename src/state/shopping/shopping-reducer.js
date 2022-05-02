@@ -1,41 +1,66 @@
-import { products } from "../../components/datasamples/productsSample";
 import * as actionTypes from "./shopping-types";
 
 const INITIAT_STATE = {
-  products: products,
-  cart: [],
+  products: [],
+  cart: JSON.parse(window.localStorage.getItem("cart")) || [],
   currentItem: null,
+  heart: [],
 };
 
 const shopReducer = (state = INITIAT_STATE, action) => {
   switch (action.type) {
+    case actionTypes.GET_ALL_PRODUCTS:
+      return {
+        ...state,
+        products: action.payload.products,
+      };
     case actionTypes.ADD_TO_CART:
-      const item = state.products.find((prod) => prod.id === action.payload.id);
-      const inCart = state.cart.find((item) =>
-        item.id === action.payload.id ? true : false
+      const item = state.products.find(
+        (prod) => prod._id === action.payload._id
       );
-      console.log(inCart);
+      const inCart = state.cart.find((item) =>
+        item._id === action.payload._id ? true : false
+      );
       return {
         ...state,
         cart: inCart
           ? state.cart.map((item) =>
-              item.id === action.payload.id
+              item._id === action.payload._id
                 ? { ...item, qty: item.qty + 1 }
                 : item
             )
           : [...state.cart, { ...item, qty: 1 }],
       };
+
+    case actionTypes.ADD_TO_HEART:
+      const items = state.products.find(
+        (prod) => prod._id === action.payload._id
+      );
+      const inHeart = state.heart.find((item) =>
+        item._id === action.payload._id ? true : false
+      );
+      return {
+        ...state,
+        heart: inHeart ? [...state.heart] : [...state.heart, items],
+      };
+
     case actionTypes.REMOVE_FROM_CART:
       return {
         ...state,
-        cart: state.cart.filter((item) => item.id !== action.payload.id),
+        cart: state.cart.filter((item) => item._id !== action.payload._id),
+      };
+
+    case actionTypes.REMOVE_FROM_HEART:
+      return {
+        ...state,
+        heart: state.heart.filter((item) => item._id !== action.payload._id),
       };
     case actionTypes.ADJ_QTY:
       return {
         ...state,
         cart: state.cart.map((item) =>
-          item.id === action.payload.id
-            ? { ...item, qty: action.payload.qty }
+          item._id === action.payload._id
+            ? { ...item, qty: +action.payload.qty }
             : item
         ),
       };
@@ -44,6 +69,22 @@ const shopReducer = (state = INITIAT_STATE, action) => {
         ...state,
         currentItem: action.payload,
       };
+    case actionTypes.GET_HEARTS:
+      return {
+        ...state,
+        heart: action.payload,
+      };
+    case actionTypes.DELETE_HEARTS:
+      return {
+        ...state,
+        heart: [],
+      };
+    case actionTypes.DELETE_ALL_CART:
+      return {
+        ...state,
+        cart: [],
+      };
+
     default:
       return state;
   }

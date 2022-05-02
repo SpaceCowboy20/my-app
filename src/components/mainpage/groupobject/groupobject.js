@@ -7,6 +7,23 @@ class Groupobject extends Component {
   render() {
     const products = this.props.products;
 
+    //push full array to db
+    /////////////////////////////////
+    /*  let pushToDb = async () => {
+      let options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          products,
+        }),
+      };
+      let reponse = await fetch("http://localhost:780/addproduct", options);
+      console.log(reponse);
+    };
+    pushToDb(); */
+
     const _ = require("lodash");
     const sample = _.sampleSize(products, 12);
     return (
@@ -18,11 +35,8 @@ class Groupobject extends Component {
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    products: state.shop.products,
-  };
-};
+const mapStateToProps = (state) => ({
+  products: state.shop.products,
+});
 
 export default connect(mapStateToProps)(Groupobject);

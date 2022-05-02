@@ -5,16 +5,19 @@ import Sidemenu from "../components/sidemenu/sidemenu";
 
 class Supermarche extends Component {
   render() {
-    const product = this.props.products;
-    const cat = product.filter((item) =>
-      item.categorie === "supermarche" ? true : false
-    );
+    let prods = this.props.prods.map((item) => {
+      let products = this.props.products;
+      let filtered = products.filter((item2) =>
+        item2._id == item ? true : false
+      );
+      return filtered[0];
+    });
     return (
       <div>
         <Sidemenu />
         <div className="box5">
           <div className="pad">
-            {cat.map((prod) => (
+            {prods.map((prod) => (
               <Singleobject key={prod.id} productData={prod} />
             ))}
           </div>
