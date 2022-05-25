@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 
+
 function Product({ products }) {
   let { id } = useParams();
   let filter = products.filter((items) => (items._id === id ? true : false));
