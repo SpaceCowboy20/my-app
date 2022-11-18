@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Singleobject from "./singleobject/singleobject";
 import "./singleobject/singleobject";
 import { connect } from "react-redux";
+import { Card } from "antd";
 
 class Groupobject extends Component {
   render() {
@@ -27,7 +28,7 @@ class Groupobject extends Component {
     const _ = require("lodash");
     const sample = _.sampleSize(products, 12);
     return (
-      <div className="pad">
+      <div className="pad pad2">
         {sample.map((prod, index) => (
           <Singleobject key={index} productData={prod} />
         ))}

@@ -1,17 +1,19 @@
 import React from "react";
 import Carousel from "react-gallery-carousel";
 import "react-gallery-carousel/dist/index.css";
+import Banner1 from "../../banners/banner1.jpg";
+import Banner2 from "../../banners/banner2.jpg";
+import Banner3 from "../../banners/banner3.jpg";
+import Banner4 from "../../banners/banner4.jpg";
+import Banner5 from "../../banners/banner5.png";
 
 const App = () => {
   const images = [
-    {
-      src: "https://animecorner.me/wp-content/uploads/2022/01/roronoza-zoro-statue-in-japan.jpg",
-    },
-    {
-      src: "https://www.comicnity.com/wp-content/uploads/2021/05/Hisoka-Morrow.jpg?ezimgfmt=ng%3Awebp%2Fngcb6%2Frs%3Adevice%2Frscb6-2",
-    },
-    { src: "https://i.ibb.co/KDdD5QC/vihqjj26.png" },
-    { src: "https://animehunch.com/wp-content/uploads/2021/06/Eren-AOT.jpg" },
+    { src: Banner1 },
+    { src: Banner2 },
+    { src: Banner3 },
+    { src: Banner4 },
+    { src: Banner5 },
   ];
 
   return (
@@ -25,7 +27,7 @@ const App = () => {
       hasSizeButton={false}
       hasMediaButton={false}
       hasThumbnails={false}
-      style={{ height: "30rem", width: "45rem" }}
+      style={{ height: "30rem", width: "100rem" }}
     />
   );
 };

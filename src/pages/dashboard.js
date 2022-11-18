@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import Heartobject from "../components/heart/heartobject";
-import { Menu } from "antd";
-import "antd/dist/antd.css";
+import { Menu, Button, Card, Image } from "antd";
 import {
   HeartOutlined,
   ShoppingCartOutlined,
@@ -12,13 +8,9 @@ import {
   ShopOutlined,
   CarryOutOutlined,
 } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
-class Heart extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
+export default class dashboard extends Component {
   getItem(label, key, icon, children, disabled, other) {
     return {
       key,
@@ -64,7 +56,11 @@ class Heart extends Component {
         true
       ),
     ];
-    const heart = this.props.heart;
+    const gridStyle = {
+      width: "25%",
+      height: "20rem",
+      textAlign: "center",
+    };
     return (
       <>
         <div className="board centered">
@@ -75,28 +71,45 @@ class Heart extends Component {
               position: "absolute",
               left: "1rem",
               borderRadius: ".4rem",
-              boxShadow:
-                "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
             }}
             className="menudrop"
-            defaultSelectedKeys={["heart"]}
+            defaultSelectedKeys={["dashboard"]}
             items={items}
           />
           <div className="pad profil2 cartheart">
-            {heart.map((product, index) => (
-              <Heartobject key={index} productData={product} />
-            ))}
+            <Card title="Dashboard" style={{ width: "100%",height:"100%" }}>
+              <Card.Grid style={gridStyle}>information utilisateur</Card.Grid>
+              <Card.Grid style={gridStyle}>Wishlist</Card.Grid>
+              <Card.Grid style={gridStyle}>Panier</Card.Grid>
+              <Card.Grid style={gridStyle}>commandes</Card.Grid>
+            </Card>
+            {/* <Card
+              hoverable
+              style={{
+                width: "fitcontent",
+                maxWidth: 250,
+                // maxHeight: 250,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              cover={
+                <img
+                  alt="fe"
+                  src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                ></img>
+              }
+            >
+              <Card.Meta
+                title="Usernamecqsddqsdccccc"
+                description="Emailazedd"
+                style={{ padding: 0, width: "", textOverflow: "ellipsis" }}
+              />
+            </Card> */}
           </div>
         </div>
       </>
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    heart: state.shop.heart,
-  };
-};
-
-export default connect(mapStateToProps)(Heart);

@@ -6,7 +6,7 @@ class Categorielist extends Component {
     let cats = this.props.cats;
     return (
       <div>
-        <div className="pad">
+        <div className="pad pad2">
           <div className="pad-title-box">
             <p className="pad-title-text">Catégories</p>
           </div>

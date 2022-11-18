@@ -25,6 +25,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getallProds } from "./state/shopping/shopping-actions";
 import Checkout from "./pages/checkout";
+import Dashboard from "./pages/dashboard";
 
 class App extends Component {
   constructor(props) {
@@ -54,12 +55,13 @@ class App extends Component {
           "Content-Type": "application/json",
         },
       };
-      let response = await fetch("http://localhost:780/allprod", options)
+      let response = await fetch("http://192.168.2.133:780/allprod", options)
         .then((res) => res.json())
         .then((res) => res.products);
 
       let getall = this.props.getallProds;
       getall(response);
+      console.log(response);
     };
     getprod();
 
@@ -70,7 +72,7 @@ class App extends Component {
           "Content-Type": "application/json",
         },
       };
-      let cats = await fetch("http://localhost:780/getcats", options)
+      let cats = await fetch("http://192.168.2.133:780/getcats", options)
         .then((res) => res.json())
         .then((res) => res.cats);
       this.setState({ cats });
@@ -116,18 +118,18 @@ class App extends Component {
       let jeuxarray = cats.filter((item) =>
         item._id == "621940738a47f88b161ada59" ? true : false
       );
-      let auto = autoarray[0].products;
-      let supermarche = superarray[0].products;
-      let autres = autresarray[0].products;
-      let sport = sportarray[0].products;
-      let maison = maisonarray[0].products;
-      let sante = santearray[0].products;
-      let informatique = infoarray[0].products;
-      let mode = modearray[0].products;
-      let audiovisuel = audiovisuelarray[0].products;
-      let telephone = telephonearray[0].products;
-      let bebe = bebearray[0].products;
-      let jeux = jeuxarray[0].products;
+      let auto = autoarray[0]?.products;
+      let supermarche = superarray[0]?.products;
+      let autres = autresarray[0]?.products;
+      let sport = sportarray[0]?.products;
+      let maison = maisonarray[0]?.products;
+      let sante = santearray[0]?.products;
+      let informatique = infoarray[0]?.products;
+      let mode = modearray[0]?.products;
+      let audiovisuel = audiovisuelarray[0]?.products;
+      let telephone = telephonearray[0]?.products;
+      let bebe = bebearray[0]?.products;
+      let jeux = jeuxarray[0]?.products;
       if (prevState === this.state) {
         this.setState({
           auto,
@@ -196,6 +198,7 @@ class App extends Component {
             <Route path="/search" element={<Search />}></Route>
             <Route path="checkout" element={<Checkout />} />
             <Route path="/product/:id" element={<Product />}></Route>
+            <Route path="/dashboard" element={<Dashboard />}></Route>
           </Routes>
         </Router>
       </div>

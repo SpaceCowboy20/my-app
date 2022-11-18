@@ -8,7 +8,7 @@ class Sante extends Component {
     let prods = this.props.prods.map((item) => {
       let products = this.props.products;
       let filtered = products.filter((item2) =>
-        item2._id == item ? true : false
+        item2._id === item ? true : false
       );
       return filtered[0];
     });

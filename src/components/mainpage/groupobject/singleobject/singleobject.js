@@ -4,10 +4,15 @@ import {
   addToCart,
   addToHeart,
 } from "../../../../state/shopping/shopping-actions";
-import * as BiIcons from "react-icons/bi";
 import "./singleobject.css";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
+import { Card } from "antd";
+import {
+  HeartOutlined,
+  ShoppingCartOutlined,
+  SelectOutlined,
+} from "@ant-design/icons";
 
 class Singleobject extends Component {
   render() {
@@ -16,37 +21,41 @@ class Singleobject extends Component {
     const addToHeart = this.props.addToHeart;
     const isLogged = this.props.isLogged;
     return (
-      <div>
-        <div className="card">
-          <img
-            className="card-img"
-            src={productData.image}
-            alt={productData.title}
-          />
-          <div className="card-text-box">
-            <BiIcons.BiHeart
-              className="card-heart"
+      <>
+        <Card
+          hoverable
+          style={{
+            width: "240px",
+            margin: "5px",
+          }}
+          cover={<img alt="example" src={productData.image} height="180px" />}
+          actions={[
+            <HeartOutlined
+              key="ShoppingCartOutlined"
+              id="red2"
               onClick={
                 isLogged
                   ? () => addToHeart(productData._id)
                   : () => swal("Login first", "or signup", "error")
               }
-            />
+            />,
             <Link to={`/product/${productData._id}`}>
-              <div className="card-title-box">
-                <p className="card-title card-text">{productData.title} </p>
-              </div>
-            </Link>
-            <div className="card-price-box">
-              <p className="card-price card-text">{productData.price}</p>
-            </div>
-            <BiIcons.BiCartAlt
+              <SelectOutlined key="SelectOutlined" />
+            </Link>,
+            <ShoppingCartOutlined
+              key="DeleteOutlined"
               onClick={() => addToCart(productData._id)}
-              className="card-cart"
-            />
-          </div>
-        </div>
-      </div>
+            />,
+          ]}
+        >
+          <Card.Meta
+            title={productData.title}
+            // style={{ backgroundColor: "red" }}
+            style={{ height: "2rem" }}
+            className="meta-heart"
+          />
+        </Card>
+      </>
     );
   }
 }

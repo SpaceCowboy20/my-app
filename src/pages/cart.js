@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { Menu, Card, Button } from "antd";
+import "antd/dist/antd.css";
+import {
+  HeartOutlined,
+  ShoppingCartOutlined,
+  AppstoreOutlined,
+  UserOutlined,
+  ShopOutlined,
+  CarryOutOutlined,
+} from "@ant-design/icons";
 import Cartobject from "../components/cart/cartobject";
 
 class Cart extends Component {
@@ -34,48 +44,88 @@ class Cart extends Component {
     });
     this.setState({ totalPrice: price, totalItems: itemcount });
   }
+  getItem(label, key, icon, children, disabled, other) {
+    return {
+      key,
+      icon,
+      children,
+      label,
+      disabled,
+      other,
+    };
+  }
   render() {
+    const items = [
+      this.getItem(
+        <Link to="/dashboard">tableau de bord</Link>,
+        "dashboard",
+        <AppstoreOutlined />
+      ),
+      this.getItem(
+        <Link to="/profile">informations utilisateur</Link>,
+        "profile",
+        <UserOutlined />
+      ),
+      this.getItem(
+        <Link to="/heart">wishliste</Link>,
+        "heart",
+        <HeartOutlined />
+      ),
+      this.getItem(
+        <Link to="/cart">panier</Link>,
+        "cart",
+        <ShoppingCartOutlined />
+      ),
+      this.getItem(
+        <Link to="/orders">commandes</Link>,
+        "orders",
+        <CarryOutOutlined />
+      ),
+      this.getItem(
+        <Link to="/profile">devenir vendeur</Link>,
+        "seller",
+        <ShopOutlined />,
+        null,
+        true
+      ),
+    ];
     const cart = this.props.cart;
     return (
-      <div>
-        <div className="board">
-          <div className="pad profil1">
-            <Link to="/dashboard">
-              <div className="backstore ">tableau de bord</div>
-            </Link>
-            <Link to="/profile">
-              <div className="backstore">informations utilisateur</div>
-            </Link>
-            <Link to="/heart">
-              <div className="backstore">wishliste</div>
-            </Link>
-            <Link to="/cart">
-              <div className="backstore selected">panier</div>
-            </Link>
-            <Link to="/orders">
-              <div className="backstore">commandes</div>
-            </Link>
-            <Link to="/cart">
-              <div className="backstore">devenir vendeur</div>
-            </Link>
-          </div>
-          <div className="pad profil2">
+      <>
+        <div className="board centered">
+          <Menu
+            style={{
+              width: 256,
+              height: "28rem",
+              position: "absolute",
+              left: "1rem",
+              borderRadius: ".4rem",
+            }}
+            className="menudrop"
+            defaultSelectedKeys={["cart"]}
+            items={items}
+          />
+          <div className="pad profil2 cartheart carpad">
+            {/* <Cartobject key={index} productData={prod} /> */}
             <div className="cart-items">
               {cart.map((prod, index) => (
-                <Cartobject key={index} productData={prod} />
+                                  <Cartobject key={index} productData={prod}/>
               ))}
             </div>
             <div className="cart-total">
+                <Card style={{height:"100%"}}>
+
               <h2>Total</h2>
               <p>total items {this.state.totalItems}</p>
               <p>total price {this.state.totalPrice}</p>
               <Link to="/checkout">
-                <button>checkout</button>
+                <Button type="primary">Proceed</Button>
               </Link>
+                </Card>
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

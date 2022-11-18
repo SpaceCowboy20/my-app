@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { deleteHeart, getHearts } from "../../state/shopping/shopping-actions";
 import { updateSearch } from "../../state/search/search-actions";
+import { products } from "../datasamples/productsSample";
 
 class Navbar extends Component {
   constructor(props) {
@@ -16,6 +17,21 @@ class Navbar extends Component {
       counter: 0,
     };
   }
+  //push full array to db
+  /////////////////////////////////
+  /* pushToDb = async () => {
+    let options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        products,
+      }),
+    };
+    let reponse = await fetch("http://localhost:780/addproduct", options);
+    console.log(reponse);
+  }; */
 
   getHeart = async () => {
     let token = JSON.parse(window.localStorage.getItem("TOKEN"));
@@ -27,7 +43,7 @@ class Navbar extends Component {
         TOKEN: token,
       },
     };
-    let response = await fetch("http://localhost:780/getheart", options);
+    let response = await fetch("http://192.168.2.133:780/getheart", options);
     let data = await response.json();
 
     this.props.getHearts(data.hearts);
@@ -44,7 +60,7 @@ class Navbar extends Component {
       },
       body: JSON.stringify({ products: heart }),
     };
-    await fetch("http://localhost:780/updateheart", options);
+    await fetch("http://192.168.2.133:780/updateheart", options);
   };
 
   componentDidMount() {
@@ -80,6 +96,7 @@ class Navbar extends Component {
 
   render() {
     let isLogged = this.props.isLogged;
+    console.log(products);
     return (
       <div className="navbox">
         <Link to="/">
@@ -104,13 +121,20 @@ class Navbar extends Component {
         <div className="navbar-elements">
           {isLogged ? (
             <Link to="/profile">
-              <button className="login-btn">profile</button>
+              <button className="login-btn">Profile</button>
             </Link>
           ) : (
             <Link to="/login">
               <button className="login-btn">Login/Signup</button>
             </Link>
           )}
+          {/* <button
+            onClick={() => {
+              this.pushToDb();
+            }}
+          >
+            push to DB
+          </button> */}
           <Link to="/heart">
             <div className="heart-box">
               <BiIcons.BiHeart className="heart" />
