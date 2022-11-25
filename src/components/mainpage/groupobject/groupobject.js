@@ -29,7 +29,7 @@ class Groupobject extends Component {
     const sample = _.sampleSize(products, 12);
     return (
       <div className="pad pad2">
-        {sample.map((prod, index) => (
+        {products.map((prod, index) => (
           <Singleobject key={index} productData={prod} />
         ))}
       </div>

@@ -28,10 +28,16 @@ class Singleobject extends Component {
             width: "240px",
             margin: "5px",
           }}
-          cover={<img alt="example" src={productData.image} height="180px" />}
+          cover={
+            <img
+              alt={productData.name}
+              src={require("../../../../" + productData.image)}
+              height="180px"
+            />
+          }
           actions={[
             <HeartOutlined
-              key="ShoppingCartOutlined"
+              key="HeartOutlined"
               id="red2"
               onClick={
                 isLogged
@@ -43,13 +49,13 @@ class Singleobject extends Component {
               <SelectOutlined key="SelectOutlined" />
             </Link>,
             <ShoppingCartOutlined
-              key="DeleteOutlined"
+              key="ShoppingCartOutlined"
               onClick={() => addToCart(productData._id)}
             />,
           ]}
         >
           <Card.Meta
-            title={productData.title}
+            title={productData.name}
             // style={{ backgroundColor: "red" }}
             style={{ height: "2rem" }}
             className="meta-heart"

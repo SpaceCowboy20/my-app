@@ -27,9 +27,11 @@ class Cart extends Component {
     let itemcount = 0;
     let cart = this.props.cart;
     cart.forEach((item) => {
-      itemcount += item.qty;
-      price += item.qty * item.price;
+      /* itemcount += item.qty;
+      price += item.qty * item.price; */
+      price += item.price;
     });
+    itemcount = cart.length;
     if (prevState === this.state) {
       this.setState({ totalPrice: price, totalItems: itemcount });
     }
@@ -39,9 +41,11 @@ class Cart extends Component {
     let itemcount = 0;
     let cart = this.props.cart;
     cart.forEach((item) => {
-      itemcount += item.qty;
-      price += item.qty * item.price;
+      /* itemcount += item.qty;
+      price += item.qty * item.price; */
+      price += item.price;
     });
+    itemcount = cart.length;
     this.setState({ totalPrice: price, totalItems: itemcount });
   }
   getItem(label, key, icon, children, disabled, other) {
@@ -105,23 +109,25 @@ class Cart extends Component {
             defaultSelectedKeys={["cart"]}
             items={items}
           />
-          <div className="pad profil2 cartheart carpad">
+          <div
+            className="pad profil2 cartheart carpad"
+            style={{ overflow: "hidden" }}
+          >
             {/* <Cartobject key={index} productData={prod} /> */}
             <div className="cart-items">
               {cart.map((prod, index) => (
-                                  <Cartobject key={index} productData={prod}/>
+                <Cartobject key={index} productData={prod} />
               ))}
             </div>
             <div className="cart-total">
-                <Card style={{height:"100%"}}>
-
-              <h2>Total</h2>
-              <p>total items {this.state.totalItems}</p>
-              <p>total price {this.state.totalPrice}</p>
-              <Link to="/checkout">
-                <Button type="primary">Proceed</Button>
-              </Link>
-                </Card>
+              <Card style={{ height: "100%" }}>
+                <h2>Total</h2>
+                <p>total items {this.state.totalItems}</p>
+                <p>total price {this.state.totalPrice} DA</p>
+                <Link to="/checkout">
+                  <Button type="primary">Proceed</Button>
+                </Link>
+              </Card>
             </div>
           </div>
         </div>

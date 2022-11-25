@@ -50,7 +50,7 @@ class Checkout extends Component {
       }),
     };
 
-    let response = await fetch("http://192.168.2.133:780/neworder", options);
+    let response = await fetch("http://localhost:780/neworder", options);
     if (response.status == 200) {
       this.props.deleteAllCart();
       this.props.navigate("/");
@@ -158,7 +158,7 @@ class Checkout extends Component {
               <h3>mode de paiement</h3>
               <div style={{ width: "50rem" }}>
                 payement à la livraison
-                <input type="radio" checked readOnly/* defaultChecked */ />
+                <input type="radio" checked readOnly /* defaultChecked */ />
                 payement par carte
                 <input type="radio" disabled />
               </div>

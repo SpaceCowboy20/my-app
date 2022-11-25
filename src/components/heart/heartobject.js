@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { removeFromHeart } from "../../state/shopping/shopping-actions";
+import { Link } from "react-router-dom";
+import {
+  removeFromHeart,
+  addToCart,
+} from "../../state/shopping/shopping-actions";
 import { Card } from "antd";
 import {
   DeleteOutlined,
@@ -12,7 +16,9 @@ class Heartobject extends Component {
   render() {
     const productData = this.props.productData;
     const removeFromHeart = this.props.removeFromHeart;
+    const addToCart = this.props.addToCart;
     const { Meta } = Card;
+    console.log(productData.image);
     return (
       <>
         {/* <div className="cartobject">
@@ -38,18 +44,32 @@ class Heartobject extends Component {
             margin: "5px",
           }}
           loading={false}
-          cover={<img alt="example" src={productData.image} height="180px" />}
+          cover={
+            <img
+              alt="example"
+              src={require("../../" + productData.image)}
+              height="180px"
+            />
+          }
           actions={[
-            <ShoppingCartOutlined key="ShoppingCartOutlined" />,
-            <SelectOutlined key="SelectOutlined" />,
-            <DeleteOutlined key="DeleteOutlined" onClick={() => {
-              removeFromHeart(productData._id);
-            }}/>
+            <ShoppingCartOutlined
+              key="ShoppingCartOutlined"
+              onClick={() => addToCart(productData._id)}
+            />,
+            <Link to={`/product/${productData._id}`}>
+              <SelectOutlined key="SelectOutlined" />
+            </Link>,
+            <DeleteOutlined
+              key="DeleteOutlined"
+              onClick={() => {
+                removeFromHeart(productData._id);
+              }}
+            />,
           ]}
-            //<CloseSquareOutlined />
+          //<CloseSquareOutlined />
         >
           <Meta
-            title={productData.title}
+            title={productData.name}
             description={productData.description}
             // style={{ backgroundColor: "red" }}
             style={{ height: "2rem" }}
@@ -63,6 +83,7 @@ class Heartobject extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     removeFromHeart: (_id) => dispatch(removeFromHeart(_id)),
+    addToCart: (_id) => dispatch(addToCart(_id)),
   };
 };
 

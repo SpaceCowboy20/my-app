@@ -13,17 +13,19 @@ import {
   ShopOutlined,
   CarryOutOutlined,
 } from "@ant-design/icons";
+import empty from "../assets/empty.jpg";
 
 class Profile extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      username:"hou",
-      password:1234,
-      email:"",
-      phone:"",
-      country:""
+      username: "",
+      password: "",
+      newpassword: "",
+      Email: "",
+      tel: "",
+      country: "",
     };
   }
   getItem(label, key, icon, children, disabled, other) {
@@ -71,7 +73,6 @@ class Profile extends Component {
         true
       ),
     ];
-    const { Meta } = Card;
     return (
       <div className="board centered">
         <Menu
@@ -87,66 +88,95 @@ class Profile extends Component {
           items={items}
         />
         <div className="pad profil2 cartheart">
-          <Form
-            labelCol={{
-              span: 4,
-            }}
-            wrapperCol={{
-              span: 14,
-            }}
-            layout="horizontal"
-            style={{ width: "600px", height: "fit-content" }}
-          >
-            <Form.Item label="Username">
-              <Input
-                onChange={(event) =>
-                  this.setState({ username: event.target.value })
-                }
-                value={this.state.username}
-              />
-            </Form.Item>
-            <Form.Item label="Password">
-              <Input
-                type="password"
-                onChange={(event) =>
-                  this.setState({ password: event.target.value })
-                }
-                value={this.state.password}
-              />
-            </Form.Item>
-            <Form.Item label="Email">
-              <Input
-                type="email"
-                onChange={(event) =>
-                  this.setState({ Email: event.target.value })
-                }
-                value={this.state.Email}
-              />
-            </Form.Item>
-            <Form.Item label="Phone Number">
-              <Input
-                type="tel"
-                onChange={(event) => this.setState({ tel: event.target.value })}
-                value={this.state.tel}
-              />
-            </Form.Item>
+          <div className="formprofile">
+            <Form
+              labelCol={{
+                span: 4,
+              }}
+              wrapperCol={{
+                span: 14,
+              }}
+              layout="horizontal"
+              style={{
+                width: "100%",
+                height: "fit-content",
+              }}
+            >
+              <Form.Item label="Username ">
+                <Input
+                  onChange={(event) =>
+                    this.setState({ username: event.target.value })
+                  }
+                  value={this.state.username}
+                />
+              </Form.Item>
+              <Form.Item label="Password ">
+                <Input
+                  type="password"
+                  onChange={(event) =>
+                    this.setState({ password: event.target.value })
+                  }
+                  value={this.state.password}
+                />
+              </Form.Item>
+              <Form.Item label="New Password ">
+                <Input
+                  status="error"
+                  type="password"
+                  onChange={(event) =>
+                    this.setState({ newpassword: event.target.value })
+                  }
+                  value={this.state.newpassword}
+                />
+              </Form.Item>
+              <Form.Item label="Email ">
+                <Input
+                  type="email"
+                  onChange={(event) =>
+                    this.setState({ Email: event.target.value })
+                  }
+                  value={this.state.Email}
+                />
+              </Form.Item>
+              <Form.Item label="Phone Number ">
+                <Input
+                  type="tel"
+                  onChange={(event) =>
+                    this.setState({ tel: event.target.value })
+                  }
+                  value={this.state.tel}
+                />
+              </Form.Item>
 
-            <Form.Item label="Country">
-              <Select defaultValue="Algiers">
-                <Select.Option value="Algiers">Algiers</Select.Option>
-                <Select.Option value="Setif">Setif</Select.Option>
-                <Select.Option value="Oran">Oran</Select.Option>
-                <Select.Option value="Constantine">Constantine</Select.Option>
-                <Select.Option value="Annaba">Annaba</Select.Option>
-                <Select.Option value="Tlemcen">Tlemcen</Select.Option>
-              </Select>
-            </Form.Item>
-          </Form>
+              <Form.Item label="Country ">
+                <Select
+                  defaultValue={this.state.country}
+                  onChange={(value) => {
+                    this.setState({ country: value });
+                  }}
+                >
+                  <Select.Option value="Algiers">Algiers</Select.Option>
+                  <Select.Option value="Setif">Setif</Select.Option>
+                  <Select.Option value="Oran">Oran</Select.Option>
+                  <Select.Option value="Constantine">Constantine</Select.Option>
+                  <Select.Option value="Annaba">Annaba</Select.Option>
+                  <Select.Option value="Tlemcen">Tlemcen</Select.Option>
+                </Select>
+              </Form.Item>
+              <div className="btnbox">
+                <Button type="primary" style={{}}>
+                  Update
+                </Button>
+              </div>
+            </Form>
+          </div>
           <Image
             width={200}
             height={200}
             className
-            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            src="error"
+            fallback={empty}
+            style={{ margin: "2rem" }}
           />
           <Button
             onClick={() => {
@@ -163,48 +193,6 @@ class Profile extends Component {
             Log Out
           </Button>
         </div>
-        {/* <div className="pad profil1">
-            <Link to="/dashboard">
-              <div className="backstore">tableau de bord</div>
-            </Link>
-            <Link to="/profile">
-              <div className="backstore selected">informations utilisateur</div>
-            </Link>
-            <Link to="/heart">
-              <div className="backstore">wishliste</div>
-            </Link>
-            <Link to="/cart">
-              <div className="backstore">panier</div>
-            </Link>
-            <Link to="/orders">
-              <div className="backstore">commandes</div>
-            </Link>
-            <Link to="/profile">
-              <div className="backstore">devenir vendeur</div>
-            </Link>
-          </div>
-          <div className="pad profil2">
-            <div className="pdp"></div>
-            {<button
-              style={{
-                height: "2rem",
-                width: "4rem",
-                position: "absolute",
-                bottom: "10",
-                right: "10",
-              }}
-              onClick={() => {
-                localStorage.removeItem("TOKEN");
-                this.props.dispatch({
-                  type: "LOGOUT",
-                });
-                this.props.navigate("/");
-              }}
-            >
-              logout
-            </button>}
-            
-          </div> */}
       </div>
     );
   }

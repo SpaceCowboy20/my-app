@@ -42,7 +42,7 @@ class Signup extends Component {
         region,
       }),
     };
-    let response = await fetch("http://192.168.2.133:780/signup", options);
+    let response = await fetch("http://localhost:780/signup", options);
     if (response.status === 200) {
       this.props.navigate("/login");
     }

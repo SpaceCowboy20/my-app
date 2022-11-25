@@ -23,13 +23,16 @@ const shopReducer = (state = INITIAT_STATE, action) => {
       );
       return {
         ...state,
+        cart: inCart ? [...state.cart] : [...state.cart, item],
+        /* 
+        ...state,
         cart: inCart
           ? state.cart.map((item) =>
               item._id === action.payload._id
                 ? { ...item, qty: item.qty + 1 }
                 : item
             )
-          : [...state.cart, { ...item, qty: 1 }],
+          : [...state.cart, { ...item, qty: 1 }], */
       };
 
     case actionTypes.ADD_TO_HEART:

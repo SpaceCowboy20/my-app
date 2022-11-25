@@ -12,8 +12,8 @@ function Product({ products }) {
   return (
     <>
       <div className="board">
-        <img src={item.image} alt="" width={500} height={500} />
-        <h2>{item.title}</h2>
+        <img src={require('../../'+item.image)} alt="" width={500} height={500} />
+        <h2>{item.name}</h2>
         <h5>{parse(desc)}</h5>
         <h1>{item.price}</h1>
       </div>

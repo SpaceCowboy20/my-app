@@ -8,6 +8,8 @@ import { connect } from "react-redux";
 import { deleteHeart, getHearts } from "../../state/shopping/shopping-actions";
 import { updateSearch } from "../../state/search/search-actions";
 import { products } from "../datasamples/productsSample";
+import { withRouter } from "../../withRouter/withRouter";
+import { compose } from "redux";
 
 class Navbar extends Component {
   constructor(props) {
@@ -43,7 +45,7 @@ class Navbar extends Component {
         TOKEN: token,
       },
     };
-    let response = await fetch("http://192.168.2.133:780/getheart", options);
+    let response = await fetch("http://localhost:780/getheart", options);
     let data = await response.json();
 
     this.props.getHearts(data.hearts);
@@ -60,16 +62,17 @@ class Navbar extends Component {
       },
       body: JSON.stringify({ products: heart }),
     };
-    await fetch("http://192.168.2.133:780/updateheart", options);
+    await fetch("http://localhost:780/updateheart", options);
   };
 
   componentDidMount() {
     let count = 0;
     let cart = this.props.cart;
     let isLogged = this.props.isLogged;
-    cart.forEach((element) => {
+    /* cart.forEach((element) => {
       count = count + element.qty;
-    });
+    }); */
+    count = cart.length;
     this.setState({ counter: count });
     if (isLogged === true) {
       this.getHeart();
@@ -80,9 +83,10 @@ class Navbar extends Component {
     let count = 0;
     let isLogged = this.props.isLogged;
     let cart = this.props.cart;
-    cart.forEach((element) => {
+    /* cart.forEach((element) => {
       count = count + element.qty;
-    });
+    }); */
+    count = cart.length;
     if (prevState === this.state) {
       this.setState({ counter: count });
       window.localStorage.setItem("cart", JSON.stringify(cart));
@@ -96,7 +100,6 @@ class Navbar extends Component {
 
   render() {
     let isLogged = this.props.isLogged;
-    console.log(products);
     return (
       <div className="navbox">
         <Link to="/">
@@ -111,12 +114,16 @@ class Navbar extends Component {
             type="text"
             name=""
             placeholder="search"
+            onKeyDown={(e) => {
+              e.key === "Enter" && this.props.navigate("/search");
+            }}
             onChange={(event) => this.props.searchupdate(event.target.value)}
           />
           <Link to="/search">
             <FaIcons.FaSearch className="search-btn" onClick={() => {}} />
           </Link>
         </div>
+        {/* <button onClick={this.pushToDb}>push</button> */}
 
         <div className="navbar-elements">
           {isLogged ? (
@@ -169,4 +176,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default compose(
+  withRouter,
+  connect(mapStateToProps, mapDispatchToProps)
+)(Navbar);

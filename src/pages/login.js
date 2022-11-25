@@ -29,7 +29,7 @@ class Login extends Component {
         password,
       }),
     };
-    let response = await fetch("http://192.168.2.133:780/login", options).then(
+    let response = await fetch("http://localhost:780/login", options).then(
       (res) => res.json()
     );
     if (response.status === "success") {
@@ -45,7 +45,7 @@ class Login extends Component {
             TOKEN: token,
           },
         };
-        let response = await fetch("http://192.168.2.133:780/getheart", options);
+        let response = await fetch("http://localhost:780/getheart", options);
         let data = await response.json();
 
         this.props.getHearts(data.hearts);

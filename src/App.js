@@ -26,6 +26,8 @@ import { connect } from "react-redux";
 import { getallProds } from "./state/shopping/shopping-actions";
 import Checkout from "./pages/checkout";
 import Dashboard from "./pages/dashboard";
+import Orders from "./pages/orders";
+import Protected from "./protected/protected";
 
 class App extends Component {
   constructor(props) {
@@ -55,13 +57,12 @@ class App extends Component {
           "Content-Type": "application/json",
         },
       };
-      let response = await fetch("http://192.168.2.133:780/allprod", options)
+      let response = await fetch("http://localhost:780/allprod", options)
         .then((res) => res.json())
         .then((res) => res.products);
 
       let getall = this.props.getallProds;
       getall(response);
-      console.log(response);
     };
     getprod();
 
@@ -72,7 +73,7 @@ class App extends Component {
           "Content-Type": "application/json",
         },
       };
-      let cats = await fetch("http://192.168.2.133:780/getcats", options)
+      let cats = await fetch("http://localhost:780/getcats", options)
         .then((res) => res.json())
         .then((res) => res.cats);
       this.setState({ cats });
@@ -163,6 +164,7 @@ class App extends Component {
     let telephone = this.state.telephone;
     let bebe = this.state.bebe;
     let jeux = this.state.jeux;
+    let isLogged = this.state.isLogged
     return (
       <div className="App">
         <Router>
@@ -191,7 +193,7 @@ class App extends Component {
               path="/telephone"
               element={<Telephone prods={telephone} />}
             />
-            <Route path="/heart" element={<Heart />} />
+            <Route path="/heart" element={ <Heart />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/login" element={<Login />}></Route>
@@ -199,6 +201,8 @@ class App extends Component {
             <Route path="checkout" element={<Checkout />} />
             <Route path="/product/:id" element={<Product />}></Route>
             <Route path="/dashboard" element={<Dashboard />}></Route>
+            <Route path="/orders" element={<Orders />}></Route>
+            
           </Routes>
         </Router>
       </div>

@@ -31,7 +31,7 @@ class Search extends Component {
     return (
       <>
         <div className="board">
-          {products.map((product, index) => (
+          {currentprodpage.map((product, index) => (
             <Singleobject key={index} productData={product} />
           ))}
           <Pagination
